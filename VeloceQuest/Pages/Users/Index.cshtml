@@ -1,0 +1,67 @@
+﻿@page
+@model VeloceQuest.Pages.Users.IndexModel
+@{
+}
+
+<br />
+@if (Model.errorMessage != "")
+{
+	<div class="row mb-3">
+		<div class="col-sm-12">
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<strong>@Model.errorMessage</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
+	</div>
+}
+
+@if (Model.successMessage != "")
+{
+	<div class="row mb-3">
+		<div class="col-sm-12">
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>@Model.successMessage</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
+	</div>
+}
+
+<h2>List of users</h2>
+<a class='btn btn-primary btn-sm' href='/Users/AddUser'>New user</a>
+<a asp-page="Index" asp-page-handler="Raport" class='btn btn-primary btn-sm'>Generate raport</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>Brithdate</th>
+			<th>Sex</th>
+			<th>Phone</th>
+			<th>Position</th>
+			<th>Shoesize</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.listUsers)
+		{
+			<tr>
+				<td>@item.id</td>
+				<td>@item.name</td>
+				<td>@item.surname</td>
+				<td>@item.birthdate</td>
+				<td>@item.sex</td>
+				<td>@item.phone</td>
+				<td>@item.position</td>
+				<td>@item.shoesize</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Users/EditUser?id=@item.id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Users/DeleteUser?id=@item.id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+
+</table>

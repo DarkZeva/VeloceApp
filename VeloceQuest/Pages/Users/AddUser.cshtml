@@ -1,0 +1,88 @@
+﻿@page
+@model VeloceQuest.Pages.Users.AddUserModel
+@{
+}
+
+<br />
+<h2>New User</h2>
+
+
+@if (Model.errorMessage != "") 
+{
+	<div class="row mb-3">
+		<div class="col-sm-9">
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<strong>@Model.errorMessage</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
+	</div>
+}
+
+@if (Model.successMessage != "")
+{
+	<div class="row mb-3">
+		<div class="col-sm-9">
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>@Model.successMessage</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		</div>
+	</div>
+}
+
+<form method="POST">
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Name</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="name" value="@Model.userInfo.name" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Surname</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="surname" value="@Model.userInfo.surname" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Sex</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="sex" value="@Model.userInfo.sex" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Phone</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" name="phone" value="@Model.userInfo.phone" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Position</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" name="position" value="@Model.userInfo.position" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Shoe size</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" name="shoesize" value="@Model.userInfo.shoesize" />
+		</div>
+	</div>
+	<div class="row mb-3">
+		<label class="col-sm-3 col-form-label">Birthdate</label>
+		<div class="col-sm-6">
+			<input type="date" class="form-control" name="birthdate" value="@Model.userInfo.birthdate" max=@Model.today />
+		</div>
+	</div>
+
+	
+
+	<div class="row mb-3">
+		<div class="offset-sm-3 col-sm-3 d-grid">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		<div class="col-sm-3 d-grid">
+			<a class="btn btn-outline-primary" href="/Users/Index" role="button">Cancel</a>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,6 @@
+Birthdate	Age	Sex	Title	Name and surname
+
+25.10.1955	68	male	Mr	Steve Jobs
+10.10.2001	22	male	Mr	Bill Gates
+10.10.2023	0	female	Mrs	Mateus Nowosadko
+26.02.1997	26	male	Mr	Legia Warszawa
